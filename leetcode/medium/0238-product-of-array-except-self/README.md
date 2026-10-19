@@ -43,32 +43,32 @@ Output: [0,0,9,0,0]
 ## Solution
 
 **Language:** Java  
-**Runtime:** 2 ms (beats 91.69%)  
-**Memory:** 71.8 MB (beats 60.67%)  
-**Submitted:** 2026-10-19T05:15:49.059Z  
+**Runtime:** 0 ms  
+**Memory:** 42 MB  
+**Submitted:** 2026-10-19T05:24:44.355Z  
 
 ```java
 class Solution {
     public int[] productExceptSelf(int[] nums) {
         int n = nums.length;
-        int[] answer = new int[n];
+        int[] tanu = new int[n];
 
      
-        answer[0] = 1;
+        tanu[0] = 1;
 
         for (int i = 1; i < n; i++) {
-            answer[i] = answer[i - 1] * nums[i - 1];
+            tanu[i] = tanu[i - 1] * nums[i - 1];
         }
 
         
         int suffix = 1;
 
         for (int i = n - 1; i >= 0; i--) {
-            answer[i] = answer[i] * suffix;
+            tanu[i] = tanu[i] * suffix;
             suffix = suffix * nums[i];
         }
 
-        return answer;
+        return tanu;
     }
 }
 ```
